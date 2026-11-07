@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Minoli 💜</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Georgia, serif;
+  background: linear-gradient(135deg,#160d29,#392052,#8b5a9e);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.card {
+  width: 100%;
+  max-width: 430px;
+  padding: 35px 22px;
+  border: 1px solid #d9b4ff66;
+  border-radius: 28px;
+  background: #ffffff12;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 40px #d49aff33;
+  animation: appear 1.5s ease;
+}
+
+@keyframes appear {
+  from {opacity:0; transform:translateY(35px);}
+  to {opacity:1; transform:translateY(0);}
+}
+
+h1 {
+  color: #f4d5ff;
+  font-size: 35px;
+  margin: 15px 0;
+}
+
+h2 {
+  color: #ffe1ff;
+  margin-bottom: 18px;
+}
+
+p {
+  line-height: 1.8;
+  color: #f8eaff;
+  margin: 15px 0;
+}
+
+.emoji {
+  font-size: 65px;
+  animation: float 2s infinite alternate;
+}
+
+@keyframes float {
+  to {transform:translateY(-12px);}
+}
+
+button {
+  border: none;
+  padding: 14px 27px;
+  border-radius: 30px;
+  background: linear-gradient(90deg,#e5b7ff,#ffb9dd);
+  color: #30163f;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 20px;
+  cursor: pointer;
+  box-shadow: 0 5px 20px #e5b7ff55;
+}
+
+button:active {
+  transform: scale(.95);
+}
+
+#surprise {
+  display: none;
+  animation: appear 1s ease;
+}
+
+.heart {
+  position: fixed;
+  bottom: -30px;
+  animation: rise 6s linear infinite;
+  pointer-events: none;
+  opacity: .8;
+}
+
+@keyframes rise {
+  to {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.small {
+  font-size: 13px;
+  color: #e9caff;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+  <div id="welcome">
+    <div class="emoji">🎀</div>
+    <p>A Little Surprise For Someone Special</p>
+
+    <h1>Happy Birthday<br>Minoli! 💜</h1>
+
+    <p>
+      Today is all about you! ✨<br>
+      A little gift, filled with love,<br>
+      happiness and beautiful memories.
+    </p>
+
+    <button onclick="openGift()">
+      Open Your Surprise 🎁
+    </button>
+  </div>
+
+  <div id="surprise">
+    <div class="emoji">🎂</div>
+
+    <h1>Dear Minoli 💗</h1>
+
+    <h2>Happy Birthday!</h2>
+
+    <p>
+      May your special day be filled with
+      endless happiness, beautiful memories
+      and countless reasons to smile.
+    </p>
+
+    <p>
+      Never stop shining, dreaming
+      and being the wonderful person you are.
+      You deserve all the beautiful things
+      life has to offer! 🌷
+    </p>
+
+    <div class="emoji">🎁💜✨</div>
+
+    <p>
+      Wishing you the happiest birthday ever!
+    </p>
+
+    <p class="small">
+      Made with love, just for Minoli ♡
+    </p>
+  </div>
+
+</div>
+
+<script>
+function openGift() {
+  document.getElementById("welcome").style.display = "none";
+  document.getElementById("surprise").style.display = "block";
+}
+
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = ["💜","💗","✨","🌸"][Math.floor(Math.random()*4)];
+  heart.style.left = Math.random()*100 + "vw";
+  heart.style.fontSize = (15+Math.random()*20) + "px";
+  heart.style.animationDuration = (4+Math.random()*4) + "s";
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(),8000);
+}
+
+setInterval(createHeart,500);
+</script>
+
+</body>
+</html>
